@@ -12,7 +12,9 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER;
 
 const client = new twilio(accountSid, authToken);
-
+app.get("/", (req, res) => {
+    res.send("Twilio SMS API is running! 🚀");
+});
 app.post("/send-sms", async (req, res) => {
     const { phoneNumber, message } = req.body;
 
